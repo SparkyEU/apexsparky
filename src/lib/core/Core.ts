@@ -31,14 +31,6 @@ export class Core {
     const playerAddresses = playerPointers.map(x => x.value).filter(Boolean);
     const players = playerAddresses.map(x => new app.Player(x, localPlayerAddress === x));
     await this.process.batch(pointersOf(players)).readAsync();
-    
-    const terceraPersona = new app.UInt8Pointer(this.region.start + BigInt('0x019e0ac0') + BigInt('0x6c'));
-    terceraPersona.value = 1;
-    const terceraPersonaLocal = new app.UInt8Pointer(this.region.start + BigInt('0x36b8'));
-    terceraPersonaLocal.value = 1;
-    await this.process.batch(terceraPersona).writeAsync();
-    await this.process.batch(localPlayerPointer, terceraPersonaLocal).writeAsync();
-    
     return players.filter(x => x.isValid);
   }
 }
