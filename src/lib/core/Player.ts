@@ -9,7 +9,9 @@ export class Player extends app.Entity {
     readonly health = new app.UInt8Pointer(address + playerOffsets.iHealth),
     readonly healthMax = new app.UInt8Pointer(address + playerOffsets.iMaxHealth),
     readonly viewAngles = new app.VectorPointer(address + playerOffsets.viewAngles),
-    readonly bleedoutState = new app.UInt8Pointer(address + playerOffsets.bleedoutState)) {
+    readonly bleedoutState = new app.UInt8Pointer(address + playerOffsets.bleedoutState),
+    readonly xp = new app.UInt8Pointer(address + BigInt('0x3684')),          
+              ) {
     super(address);
   }
   
@@ -34,6 +36,10 @@ export class Player extends app.Entity {
        }else{
          return '#FFCCFF';
        }
+      if(this.isSameTeam(otherPlayer, mode)){
+        console.log(this.xp);
+      }
+      
     }else{
       return this.isLocal ? '#0000FF' : this.isSameTeam(otherPlayer, mode)
         ? (this.bleedoutState.value ? '#FFFF00' : '#00FF00')
