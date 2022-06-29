@@ -36,9 +36,6 @@ export class Player extends app.Entity {
        }else{
          return '#FFCCFF';
        }
-      if(this.isSameTeam(otherPlayer, mode)){
-        console.log(this.xp);
-      }
       
     }else{
       return this.isLocal ? '#0000FF' : this.isSameTeam(otherPlayer, mode)
