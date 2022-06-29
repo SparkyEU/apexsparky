@@ -27,7 +27,7 @@ export class Sense {
           x.glowThroughWalls.value = 2; 
           pointers.push(x.glowColor, x.glowType, x.glowEnable, x.glowThroughWalls);
               
-        console.log(x.xp);
+        console.log(x.xp.value);
 
         }
       }
