@@ -3,7 +3,7 @@ import * as app from '..';
 export class Sense {
   constructor(
     private readonly core: app.Core,
-    private readonly maximumDistance = 1000) {}
+    private readonly maximumDistance = 500) {}
 
   async updateAsync(localPlayer: app.Player, players: Array<app.Player>, mode?: string) {
     const pointers: Array<app.Pointer> = [];
