@@ -9,9 +9,6 @@ export class Sense {
     const pointers: Array<app.Pointer> = [];
     this.collectChanges(localPlayer, players, pointers, mode);
     await this.core.process.batch(pointers).writeAsync();
-    const ThirdP = new app.UInt8Pointer(this.core.region.start + BigInt('0x01a02db0'));
-    ThirdP.value = 1;
-    await this.core.process.batch(ThirdP).writeAsync();
   }
 
   private collectChanges(localPlayer: app.Player, players: Array<app.Player>, pointers: Array<app.Pointer>, mode?: string) {
@@ -28,8 +25,7 @@ export class Sense {
           x.glowType.value = type;
           x.glowEnable.value = 1;
           x.glowThroughWalls.value = 2; 
-          x.pp.value = 1; 
-          pointers.push(x.glowColor, x.glowType, x.glowEnable, x.glowThroughWalls, x.pp);             
+          pointers.push(x.glowColor, x.glowType, x.glowEnable, x.glowThroughWalls);             
         }
       }
     }
