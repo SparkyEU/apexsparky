@@ -9,7 +9,6 @@ export class Sense {
     const pointers: Array<app.Pointer> = [];
     this.collectChanges(localPlayer, players, pointers, mode);
     await this.core.process.batch(pointers).writeAsync();
-    #ddddd
     const ThirdP = new app.UInt8Pointer(this.core.region.start + BigInt('0x01a02db0'));
     ThirdP.value = 1;
     await this.core.process.batch(ThirdP).writeAsync();
