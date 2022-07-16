@@ -9,7 +9,6 @@ export class Player extends app.Entity {
     readonly health = new app.UInt8Pointer(address + playerOffsets.iHealth),
     readonly healthMax = new app.UInt8Pointer(address + playerOffsets.iMaxHealth),
     readonly viewAngles = new app.VectorPointer(address + playerOffsets.viewAngles),
-    readonly pp = new app.UInt8Pointer(address + BigInt('0x36a8')),
     readonly bleedoutState = new app.UInt8Pointer(address + playerOffsets.bleedoutState)) {
     super(address);
   }
