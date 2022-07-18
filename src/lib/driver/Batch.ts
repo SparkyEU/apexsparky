@@ -21,7 +21,7 @@ export class Batch {
   async writeAsync() {
     if (!this.pointers.length) return;
     const body = await new Blob(this.pointers.map(x => x.buffer)).arrayBuffer();
-    const request = this.pointers.map(x => `${x.address.toString(64)}:${x.bufferSize.toString(64)}`).join(',');
+    const request = this.pointers.map(x => `${x.address.toString(36)}:${x.bufferSize.toString(36)}`).join(',');
     await fetch(`/api/proc/${this.pid}/mem/${request}`, {body, method: 'PUT'});
   }
 }
