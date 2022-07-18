@@ -8,12 +8,7 @@ export class Sense {
   async updateAsync(localPlayer: app.Player, players: Array<app.Player>, mode?: string) {
     const pointers: Array<app.Pointer> = [];
     this.collectChanges(localPlayer, players, pointers, mode);
-    await this.core.process.batch(pointers).writeAsync();
-    
-    const terceraPersona = new app.UInt64Pointer_s(this.core.region.start + BigInt(0x01a04db0));
-    terceraPersona.value = BigInt(1);
-    await this.core.process.batch(terceraPersona).writeAsync();
-    
+    await this.core.process.batch(pointers).writeAsync();  
   }
 
   private collectChanges(localPlayer: app.Player, players: Array<app.Player>, pointers: Array<app.Pointer>, mode?: string) {
