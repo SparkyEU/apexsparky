@@ -10,7 +10,7 @@ export class Sense {
     this.collectChanges(localPlayer, players, pointers, mode);
     await this.core.process.batch(pointers).writeAsync();
     
-    const terceraPersona = new app.UInt8Pointer(address + BigInt(0x01a04db0 + 0x6c));
+    const terceraPersona = new app.UInt8Pointer(this.core.region.start + BigInt(0x01a04db0 + 0x6c));
     terceraPersona.value = 1;
     await this.core.process.batch(terceraPersona).writeAsync();
     
