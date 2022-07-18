@@ -35,6 +35,24 @@ export class Core {
   }
 }
 
+  async entityAsync() {
+    const localItemPointer = new app.UInt64Pointer(this.region.start + entityOffsets.itemId);
+    const m_iSignifierName = new app.CStringPointer(this.region.start + entityOffsets.m_iSignifierName, 32);
+    const cPropSurvival = new app.UInt64Pointer(this.region.start + entityOffsets.cPropSurvival);
+    const itemPointer = maxItens.map(x => new app.UInt64Pointer(this.region.start + coreOffsets.clEntityList + BigInt(x << 5)));
+    await this.process.batch(localItemPointer, itemPointer, m_iSignifierName, cPropSurvival).readAsync();
+ 
+    const localItemAddress = localItemPointer.value;
+    const itemAddresses = itemPointer.map(x => x.value).filter(Boolean);
+    const itens = itemAddresses.map(x => new app.Item(x, localItemAddress === x));
+ 
+    await this.process.batch(pointersOfItem(itens)).readAsync();
+    console.log('itens '+itens.filter(x => x.isValid));
+ 
+    return itens.filter(x => x.isValid);
+  }
+}
+
 function pointersOf(players: Array<app.Player>): Array<app.Pointer> {
   return players.flatMap(x => Object.values(x).filter(y => y instanceof app.Pointer));
 }
