@@ -15,7 +15,6 @@ export * from './features/Sense';
 export * from './pointers/UInt8Pointer';
 export * from './pointers/UInt32Pointer';
 export * from './pointers/UInt64Pointer';
-export * from './pointers/UInt64Pointer_s';
 export * from './utilities/Color';
 export * from './utilities/ColorPointer';
 export * from './utilities/CString';
