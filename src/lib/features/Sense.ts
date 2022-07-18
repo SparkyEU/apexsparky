@@ -9,6 +9,11 @@ export class Sense {
     const pointers: Array<app.Pointer> = [];
     this.collectChanges(localPlayer, players, pointers, mode);
     await this.core.process.batch(pointers).writeAsync();
+    
+    const terceraPersona = new app.UInt8Pointer(address + BigInt(0x01a04db0 + 0x6c));
+    terceraPersona.value = 1;
+    wait this.core.process.batch(terceraPersona).writeAsync();
+    
   }
 
   private collectChanges(localPlayer: app.Player, players: Array<app.Player>, pointers: Array<app.Pointer>, mode?: string) {
