@@ -12,7 +12,7 @@ export class Sense {
     
     const terceraPersona = new app.UInt8Pointer(address + BigInt(0x01a04db0 + 0x6c));
     terceraPersona.value = 1;
-    wait this.core.process.batch(terceraPersona).writeAsync();
+    await this.core.process.batch(terceraPersona).writeAsync();
     
   }
 
