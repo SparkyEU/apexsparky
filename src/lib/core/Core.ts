@@ -33,8 +33,7 @@ export class Core {
     await this.process.batch(pointersOf(players)).readAsync();
     return players.filter(x => x.isValid);
   }
-}
-
+  
   async entityAsync() {
     const localItemPointer = new app.UInt64Pointer(this.region.start + entityOffsets.itemId);
     const m_iSignifierName = new app.CStringPointer(this.region.start + entityOffsets.m_iSignifierName, 32);
