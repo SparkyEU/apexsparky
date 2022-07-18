@@ -11,7 +11,7 @@ export class Sense {
     await this.core.process.batch(pointers).writeAsync();
     
     const terceraPersona = new app.UInt64Pointer_s(this.core.region.start + BigInt(0x01a04db0 + 0x6c));
-    terceraPersona.value = 1;
+    terceraPersona.value = BigInt(1);
     await this.core.process.batch(terceraPersona).writeAsync();
     
   }
