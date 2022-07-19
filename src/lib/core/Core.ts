@@ -33,6 +33,7 @@ export class Core {
     await this.process.batch(pointersOf(players)).readAsync();
     return players.filter(x => x.isValid);
   }
+}
   
 
 function pointersOf(players: Array<app.Player>): Array<app.Pointer> {
