@@ -26,7 +26,7 @@ export class Core {
         end: '0x140001000',
         inode: '43519052',
         offset: '0x00000000',
-        pathname: '/home/Sparky/.steam/steam/steamapps/common/Apex Legendsr5apex.exe',
+        pathname: '/home/Sparky/.steam/steam/steamapps/common/Apex Legends/r5apex.exe',
         perms: 1
       })
     };
