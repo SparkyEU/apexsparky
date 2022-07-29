@@ -11,12 +11,27 @@ export class Core {
     const processes = await server.processesAsync();
     const targetProcess = processes.find(x => x.command.toLowerCase().endsWith('r5apex.exe'));
     if (!targetProcess) throw new Error('Invalid process!');
+    console.log(JSON.stringify(targetProcess))
     const regions = await targetProcess.regionsAsync();
-    const targetRegion = regions.find(x => x.pathname.toLowerCase().endsWith('r5apex.exe'));
-    if (!targetRegion) throw new Error('Invalid region!');
+    regions.forEach(val => {
+      if(val.pathname.includes('r5apex.exe')) console.log(val)
+    })
+    var targetRegion = regions.find(x => x.pathname.toLowerCase().endsWith('r5apex.exe'));
+    //if (!targetRegion) throw new Error('Invalid region!');
+    if (!targetRegion){
+      targetRegion = new app.Region({
+        devMajor: 259,
+        devMinor: 3,
+        start: '0x140000000',
+        end: '0x140001000',
+        inode: '43519052',
+        offset: '0x00000000',
+        pathname: '/home/Sparky/.steam/steam/steamapps/common/Apex Legendsr5apex.exe',
+        perms: 1
+      })
+    };
     return new Core(targetProcess, targetRegion);
   }
-
   async levelNameAsync() {
     const levelNamePointer = new app.CStringPointer(this.region.start + coreOffsets.levelName, 32);
     await this.process.batch(levelNamePointer).readAsync();
