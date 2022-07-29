@@ -24,9 +24,9 @@ export class Core {
         devMinor: 3,
         start: '0x140000000',
         end: '0x140001000',
-        inode: '43519052',
+        inode: '4092947',
         offset: '0x00000000',
-        pathname: '/home/Sparky/.steam/steam/steamapps/common/Apex Legends/r5apex.exe',
+        pathname: '/home/sparky/.steam/steam/steamapps/common/Apex Legends/r5apex.exe',
         perms: 1
       })
     };
