@@ -3,7 +3,7 @@ html {
   box-sizing: border-box;
 }
 
-*,
+*,#bdbcd1
 *:before,
 *:after {
   box-sizing: inherit;
@@ -16,7 +16,7 @@ body,
 html {
   width: 100%;
   height: 100%;
-  background: #1c1d22;
+  background: #bdbcd1;
   font-family: "Varela Round", sans-serif;
 }
 
