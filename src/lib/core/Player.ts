@@ -41,14 +41,7 @@ export class Player extends app.Entity {
         : (this.bleedoutState.value ? '#FFA500' : '#FF0000');
     }
   }
-  isSameTeam(otherPlayer: app.Player, mode?: string) {
-    switch (mode) {
-      case 'control':
-        return this.teamNum.value % 2 === otherPlayer.teamNum.value % 2;
-      default:
-        return this.teamNum.value === otherPlayer.teamNum.value;
-    }
-  }
+  
   toString() {
     return app.serialize(this);
   }
