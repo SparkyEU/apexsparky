@@ -2,17 +2,15 @@ import * as app from './lib';
 import {ui} from './ui';
 const container = <HTMLElement> document.querySelector('.container');
 const content = <HTMLElement> document.querySelector('.content');
-const frameTime = 1000 / 40;
-const Aim = new app.Aim();
-
+const frameTime = 1000 / 10;
 
 ui((x) => {
   container.style.display = 'inherit';
-  content.textContent = 'Aimbot is running. Keep this window open.';
-  return renderAsync(x);
+  content.textContent = 'Aim running. Keep this window open.';
+  return renderAsync(x, new app.Aim(x));
 });
 
-async function renderAsync(core: app.Core) {
+async function renderAsync(core: app.Core, Aim: app.Aim) {
   while (true) {
     const beginTime = Date.now();
     const players = await core.playersAsync();
