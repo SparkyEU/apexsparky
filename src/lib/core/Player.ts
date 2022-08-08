@@ -1,5 +1,6 @@
 import * as app from '..';
 import {playerOffsets} from './offsets/playerOffsets';
+import {entityOffsets} from './offsets/entityOffsets';
 export class Player extends app.Entity {
   constructor(address: bigint,
     readonly isLocal: boolean,
@@ -9,6 +10,9 @@ export class Player extends app.Entity {
     readonly health = new app.UInt8Pointer(address + playerOffsets.iHealth),
     readonly healthMax = new app.UInt8Pointer(address + playerOffsets.iMaxHealth),
     readonly viewAngles = new app.VectorPointer(address + playerOffsets.viewAngles),
+    readonly zooming = new app.UInt8Pointer(address + playerOffsets.zooming),
+    readonly aimpunch = new app.VectorPointer((address + playerOffsets.aimpunch),
+    readonly visiable_time = new app.VectorPointer((address + entityOffsets.visible_time),
     readonly bleedoutState = new app.UInt8Pointer(address + playerOffsets.bleedoutState)) {
     super(address);
   }
