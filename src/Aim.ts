@@ -7,7 +7,7 @@ const frameTime = 1000 / 10;
 ui((x) => {
   container.style.display = 'inherit';
   content.textContent = 'Aim running. Keep this window open.';
-  return renderAsync(x, new app.Aim(x));
+  return renderAsync(x, new app.Aimbot(x));
 });
 
 async function renderAsync(core: app.Core, Aim: app.Aim) {
