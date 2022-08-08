@@ -10,7 +10,7 @@ canvas.addEventListener('dblclick', () => {
     : document.body.requestFullscreen()).catch();
 });
 
-ui(x => renderAsync(x, new app.Sense(x)).finally(() => {
+ui(x => renderAsync(x, new app.features.Sense(), new app.features.Aimbot()).finally(() => {
   canvas.height = 0;
   canvas.width = 0;
 }));
