@@ -25,6 +25,7 @@ async function renderAsync(core: app.Core, sense: app.Sense) {
     await Promise.all([
       renderFrame(levelName, localPlayer, players),
       senseAsync(localPlayer, players, sense),
+      updateAimbot(levelName, localPlayer, players, aimbot);
       new Promise(x => setTimeout(x, frameTime - (Date.now() - beginTime)))
     ]);
   }
