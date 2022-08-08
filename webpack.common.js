@@ -3,7 +3,8 @@ module.exports = {
     map: './dist/map',
     radar: './dist/radar',
     sense: './dist/sense',
-    Aim: './dist/Aim'
+    Aim: './dist/Aim',
+    norecoil: './dist/norecoil'
     
   },
   output: {
