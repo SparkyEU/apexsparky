@@ -50,3 +50,9 @@ async function senseAsync(localPlayer: app.Player | undefined, players: Array<ap
   if (!location.hash.includes('enable-sense')) return;
   await sense.updateAsync(localPlayer, players);
 }
+
+function updateAimbot(levelName: string, localPlayer: app.core.Player | undefined, players: Array<app.core.Player>, aimbot: app.features.Aimbot) {
+  if (!localPlayer) return;
+  if (!location.hash.includes('enable-sense-aimbot')) return;
+  aimbot.updateStates(levelName, localPlayer, players);
+}
